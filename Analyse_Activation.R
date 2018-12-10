@@ -6,7 +6,8 @@ data <- readRDS("activation.Rdata")
 summary(data)
 data <- data[ , - c(1:2)]
 plot(data)
-
+signal = data
+boxplot(list(signal$PROD_G_Frontal_Inf_Tri_1_L, signal$PROD_G_Angular_2_L , signal$PROD_G_Occipital_Lat_1_L , signal$PROD_G_Rolandic_Oper_1_L , signal$PROD_S_Sup_Temporal_4_L , signal$PROD_G_Hippocampus_1_L , signal$PROD_G_Frontal_Inf_Tri_1_R , signal$PROD_G_Angular_2_R , signal$PROD_G_Occipital_Lat_1_R , signal$PROD_G_Rolandic_Oper_1_R , signal$PROD_S_Sup_Temporal_4_R , signal$PROD_G_Hippocampus_1_R))
 
 if(!require(PCAmixdata)) {
   install.packages(("PCAmixdata"))
@@ -19,6 +20,7 @@ res_acp$sqload #carré du coef de corrélation entre les axes principaux et les 
 plot(res_acp, choice="sqload") 
 
 plot(res_acp,axes=c(1,2),choice="cor")
+
 
 
 
